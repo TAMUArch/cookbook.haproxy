@@ -1,4 +1,4 @@
-haproxy Cookbook
+Haproxy Cookbook
 ================
 Install and configure haproxy
 
