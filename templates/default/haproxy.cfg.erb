@@ -21,8 +21,8 @@ defaults
 
 <% node[:haproxy][:options].each do |type, configs| -%>
   <% unless configs.nil? -%>
-    <% configs.each do |frontend, options| -%>
-<%= "#{type.chomp("s")} #{frontend}" %> 
+    <% configs.each do |type_name, options| -%>
+<%= "#{type.chomp("s")} #{type_name}" %> 
       <% options.each do |name, values| -%>
         <% if name.end_with?("s") -%>
           <% values.each do |value| -%>
@@ -32,6 +32,7 @@ defaults
   <%= "#{name} #{values}" %>
         <% end -%>
       <% end -%>
+<%=  %>
     <% end -%>
   <% end -%>
 <% end -%>  
