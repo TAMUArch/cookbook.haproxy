@@ -1,0 +1,37 @@
+## 
+#
+#  This file is managed by Chef
+#
+##
+
+global
+<% node[:haproxy][:global][:log].each do |location, facility| -%>
+  log <%= location %> <%=facility%>
+<% end -%>
+  maxconn <%= node[:haproxy][:global][:maxconn] %>
+  user <%= node[:haproxy][:global][:user] %>
+  group <%= node[:haproxy][:global][:group] %>
+  daemon
+
+defaults
+  mode <%= node[:haproxy][:default][:mode] %>
+  timeout connect <%= node[:haproxy][:default][:timeout_connect] %>
+  timeout client <%= node[:haproxy][:default][:timeout_client] %>
+  timeout server <%= node[:haproxy][:default][:timeout_server] %>
+
+<% node[:haproxy][:options].each do |type, configs| -%>
+  <% unless configs.nil? -%>
+    <% configs.each do |frontend, options| -%>
+<%= "#{type.chomp("s")} #{frontend}" %> 
+      <% options.each do |name, values| -%>
+        <% if name.end_with?("s") -%>
+          <% values.each do |value| -%>
+  <%= "#{name.chomp("s")} #{value}" %>
+          <% end -%>
+        <% else -%>
+  <%= "#{name} #{values}" %>
+        <% end -%>
+      <% end -%>
+    <% end -%>
+  <% end -%>
+<% end -%>  
