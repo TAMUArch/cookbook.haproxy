@@ -24,9 +24,9 @@ defaults
     <% configs.each do |type_name, options| -%>
 <%= "#{type.chomp("s")} #{type_name}" %> 
       <% options.each do |name, values| -%>
-        <% if name.end_with?("s") -%>
+        <% if values.kind_of?(Array) -%>
           <% values.each do |value| -%>
-  <%= "#{name.chomp("s")} #{value}" %>
+  <%= "#{name} #{value}" %>
           <% end -%>
         <% else -%>
   <%= "#{name} #{values}" %>
