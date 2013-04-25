@@ -10,10 +10,6 @@ default[:haproxy][:default][:timeout_connect] = "5s"
 default[:haproxy][:default][:timeout_client] = "5s"
 default[:haproxy][:default][:timeout_server] = "5s"
 
-# Data bags are used to build out the ha config
-default[:haproxy][:default][:data_bags] = [ "ha_frontend",
-                                            "ha_listen",
-                                            "ha_backend" ]
 default[:haproxy][:options][:frontends] = nil
 default[:haproxy][:options][:listens] = nil
 default[:haproxy][:options][:backends] = nil 
