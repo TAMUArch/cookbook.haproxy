@@ -1,12 +1,9 @@
 # CHANGELOG for haproxy
 
-This file is used to list changes made in each version of haproxy.
+## 0.1.1:
+
+* Added test-kitchen v1 support
 
 ## 0.1.0:
 
 * Initial release of haproxy
-
-- - -
-Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.
-
-The [Github Flavored Markdown page](http://github.github.com/github-flavored-markdown/) describes the differences between markdown on github and standard markdown.
