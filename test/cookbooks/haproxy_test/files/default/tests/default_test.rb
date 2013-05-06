@@ -15,8 +15,7 @@ describe "haproxy_test::default" do
     assert_includes_content file("/etc/haproxy/haproxy.cfg"), "#  This file is managed by Chef"
   end
 
-  it 'enables and starts the haproxy service' do
-    assert_enabled "haproxy"
-    assert_running "haproxy"
+  it 'starts the haproxy service' do
+    service("haproxy").must_be_running 
   end
 end
