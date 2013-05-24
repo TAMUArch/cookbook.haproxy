@@ -10,7 +10,7 @@ if node[:haproxy][:use_dev]
   case node[:platform_family] 
   when "debian"
     apt_repository "haproxy-1.5-ppa" do
-      uri "https://ppa.launchpad.net/nilya/haproxy-1.5" 
+      uri "http://ppa.launchpad.net/nilya/haproxy-1.5/ubuntu" 
       distribution node[:lsb][:codename]
       components [ "main" ]
       keyserver "keyserver.ubuntu.com"
