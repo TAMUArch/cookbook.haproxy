@@ -5,8 +5,8 @@
 # Copyright 2013, TAMU 
 #
 #
-package node[:haproxy][:package] do
-  action :install
+if node[:haproxy][:install_method] == "package"
+  include_recipe "haproxy::package"
 end
 
 file "/etc/default/haproxy" do
