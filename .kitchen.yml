@@ -36,3 +36,11 @@ suites:
   - recipe[minitest-handler]
   - recipe[haproxy_test]
   attributes: {}
+- name: feature-haproxy-dev-support
+  run_list:
+  - recipe[haproxy_test]
+  attributes: {
+    "haproxy": {
+      "use_dev": true
+    }
+  }
