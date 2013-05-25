@@ -14,6 +14,8 @@ default[:haproxy][:options][:frontends] = nil
 default[:haproxy][:options][:listens] = nil
 default[:haproxy][:options][:backends] = nil 
 
+default[:haproxy][:install_method] = "package"
+default[:haproxy][:use_dev] = false
 default[:haproxy][:package] = "haproxy"
 default[:haproxy][:config] = "haproxy.cfg"
 default[:haproxy][:dir] = "/etc/haproxy"
