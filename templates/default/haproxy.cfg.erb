@@ -1,25 +1,25 @@
-## 
+##
 #
 #  This file is managed by Chef
 #
 ##
 
 global
-<% node[:haproxy][:global][:log].each do |location, facility| -%>
-  log <%= location %> <%=facility%>
+<% node['haproxy']['global']['log'].each do |location, facility| -%>
+  log <%= location %> <%= facility %>
 <% end -%>
-  maxconn <%= node[:haproxy][:global][:maxconn] %>
-  user <%= node[:haproxy][:global][:user] %>
-  group <%= node[:haproxy][:global][:group] %>
+  maxconn <%= node['haproxy']['global']['maxconn'] %>
+  user <%= node['haproxy']['global']['user'] %>
+  group <%= node['haproxy']['global']['group'] %>
   daemon
 
 defaults
-  mode <%= node[:haproxy][:default][:mode] %>
-  timeout connect <%= node[:haproxy][:default][:timeout_connect] %>
-  timeout client <%= node[:haproxy][:default][:timeout_client] %>
-  timeout server <%= node[:haproxy][:default][:timeout_server] %>
+  mode <%= node['haproxy']['default']['mode'] %>
+  timeout connect <%= node['haproxy']['default']['timeout_connect'] %>
+  timeout client <%= node['haproxy']['default']['timeout_client'] %>
+  timeout server <%= node['haproxy']['default']['timeout_server'] %>
 
-<% node[:haproxy][:options].each do |type, configs| -%>
+<% node['haproxy']['options'].each do |type, configs| -%>
   <% unless configs.nil? -%>
     <% configs.each do |type_name, options| -%>
 <%= "#{type.chomp("s")} #{type_name}" %> 
@@ -35,4 +35,4 @@ defaults
 <%=  %>
     <% end -%>
   <% end -%>
-<% end -%>  
+<% end -%>
