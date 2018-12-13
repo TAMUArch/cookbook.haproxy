@@ -12,6 +12,10 @@ global
   user <%= node['haproxy']['global']['user'] %>
   group <%= node['haproxy']['global']['group'] %>
   daemon
+<% if node['haproxy']['socket']['enable'] -%>
+  stats socket <%= node['haproxy']['socket']['path'] %> mode <%= node['haproxy']['socket']['mode'] %> level <%= node['haproxy']['socket']['group'] %>
+  stats timeout <%= node['haproxy']['socket']['timeout'] %>
+<% end -%>
 
 defaults
   mode <%= node['haproxy']['default']['mode'] %>

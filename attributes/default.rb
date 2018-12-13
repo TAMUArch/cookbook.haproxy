@@ -20,3 +20,9 @@ default['haproxy']['package'] = 'haproxy'
 default['haproxy']['config'] = 'haproxy.cfg'
 default['haproxy']['dir'] = '/etc/haproxy'
 default['haproxy']['service'] = 'haproxy'
+
+default['haproxy']['socket']['enable'] = false
+default['haproxy']['socket']['path'] = '/run/haproxy.sock'
+default['haproxy']['socket']['mode'] = '660'
+default['haproxy']['socket']['group'] = 'admin'
+default['haproxy']['socket']['timeout'] = '1m'
